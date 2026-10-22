@@ -1,1 +1,356 @@
 
+
+* {
+    box-sizing: border-box;
+  }
+  
+  :root {
+    --primary: #176b50;
+    --primary-dark: #10523d;
+    --bg: #f4f7f6;
+    --border: #e1e8e5;
+    --text: #1d2925;
+    --muted: #718079;
+  }
+  
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.5;
+  }
+  
+  .header {
+    background: #fff;
+    text-align: center;
+    padding: 25px 16px 20px;
+    border-bottom: 1px solid var(--border);
+  }
+  
+  .logo {
+    font-size: 27px;
+    font-weight: 800;
+    color: var(--primary);
+  }
+  
+  .logo span {
+    font-size: 13px;
+    padding: 4px 8px;
+    background: #e3f4eb;
+    border-radius: 6px;
+  }
+  
+  .header p,
+  .section-title p {
+    color: var(--muted);
+    margin: 5px 0 0;
+    font-size: 14px;
+  }
+  
+  .container {
+    width: min(1050px, 92%);
+    margin: 32px auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 22px;
+    align-items: start;
+  }
+  
+  .card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 15px;
+    padding: 24px;
+    box-shadow: 0 5px 20px rgba(25, 60, 45, 0.04);
+    min-width: 0;
+  }
+  
+  .section-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 22px;
+  }
+  
+  .section-title h2 {
+    font-size: 19px;
+    margin: 0;
+  }
+  
+  .tag {
+    background: #edf0ff;
+    color: #4e57a5;
+    padding: 5px 9px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 700;
+    white-space: nowrap;
+  }
+  
+  .tag.green {
+    background: #e2f5eb;
+    color: var(--primary);
+  }
+  
+  .upload-box {
+    border: 2px dashed #cbdad3;
+    border-radius: 12px;
+    padding: 32px 15px;
+    text-align: center;
+    background: #fbfdfc;
+    transition: 0.2s;
+    cursor: pointer;
+  }
+  
+  .upload-box:hover,
+  .upload-box.dragging {
+    border-color: var(--primary);
+    background: #f0faf5;
+  }
+  
+  .upload-icon {
+    margin: 0 auto 10px;
+    width: 47px;
+    height: 47px;
+    display: grid;
+    place-items: center;
+    border-radius: 12px;
+    background: #e4f4eb;
+    color: var(--primary);
+    font-size: 30px;
+  }
+  
+  .upload-box h3 {
+    font-size: 16px;
+    margin: 8px 0 4px;
+  }
+  
+  .upload-box p {
+    font-size: 13px;
+    color: var(--muted);
+    margin: 0 0 16px;
+  }
+  
+  .upload-box small {
+    display: block;
+    color: var(--muted);
+    margin-top: 13px;
+    font-size: 11px;
+  }
+  
+  .btn {
+    padding: 11px 15px;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 13px;
+    cursor: pointer;
+    transition: 0.2s;
+  }
+  
+  .btn:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+  }
+  
+  .primary {
+    background: var(--primary);
+    color: white;
+  }
+  
+  .primary:hover:not(:disabled) {
+    background: var(--primary-dark);
+  }
+  
+  .secondary {
+    background: #e8f3ed;
+    color: var(--primary);
+  }
+  
+  .light {
+    background: #f0f2f1;
+    color: #46534d;
+  }
+  
+  .full {
+    width: 100%;
+    margin-top: 20px;
+    padding: 13px;
+  }
+  
+  .settings {
+    margin-top: 20px;
+  }
+  
+  .settings label {
+    display: block;
+    margin-bottom: 7px;
+    font-size: 13px;
+    font-weight: 600;
+  }
+  
+  .settings select {
+    width: 100%;
+    padding: 11px;
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font: inherit;
+  }
+  
+  .preview-section {
+    margin-top: 20px;
+  }
+  
+  .preview-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .preview-heading h3 {
+    margin: 0;
+    font-size: 14px;
+  }
+  
+  .text-btn {
+    border: 0;
+    background: none;
+    color: #bd3e3e;
+    cursor: pointer;
+  }
+  
+  #previewImage {
+    display: block;
+    width: 100%;
+    max-height: 280px;
+    object-fit: contain;
+    border: 1px solid var(--border);
+    border-radius: 9px;
+    background: #f8f9f8;
+  }
+  
+  .result-card textarea {
+    display: block;
+    width: 100%;
+    height: 300px;
+    resize: vertical;
+    padding: 14px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    outline: none;
+    font: 14px/1.7 inherit;
+    font-family: inherit;
+    color: var(--text);
+    background: #fcfdfc;
+  }
+  
+  .result-card textarea:focus {
+    border-color: var(--primary);
+  }
+  
+  .text-info {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin: 10px 0 17px;
+    font-size: 12px;
+    color: var(--muted);
+  }
+  
+  .actions {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  
+  .hint {
+    font-size: 12px;
+    color: var(--muted);
+    margin: 15px 0 0;
+  }
+  
+  .progress-section {
+    margin-top: 20px;
+  }
+  
+  .progress-heading {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    margin-bottom: 8px;
+  }
+  
+  .progress-track {
+    height: 7px;
+    border-radius: 10px;
+    overflow: hidden;
+    background: #e6eeea;
+  }
+  
+  #progressBar {
+    height: 100%;
+    width: 0%;
+    background: var(--primary);
+    transition: width 0.2s;
+  }
+  
+  .message {
+    padding: 10px 12px;
+    border-radius: 8px;
+    margin-top: 14px;
+    font-size: 13px;
+    overflow-wrap: anywhere;
+  }
+  
+  .message.success {
+    background: #e4f6ec;
+    color: #176b50;
+  }
+  
+  .message.error {
+    background: #fff0ef;
+    color: #b52e2e;
+  }
+  
+  .hidden {
+    display: none !important;
+  }
+  
+  footer {
+    text-align: center;
+    color: var(--muted);
+    font-size: 12px;
+    padding: 15px;
+  }
+  
+  @media (max-width: 760px) {
+    .container {
+      grid-template-columns: 1fr;
+      margin: 20px auto;
+      gap: 16px;
+    }
+  
+    .card {
+      padding: 18px;
+    }
+  
+    .result-card textarea {
+      height: 240px;
+    }
+  }
+  
+  @media (max-width: 380px) {
+    .actions .btn {
+      flex: 1 1 100%;
+    }
+  
+    .section-title h2 {
+      font-size: 17px;
+    }
+  }
+  
